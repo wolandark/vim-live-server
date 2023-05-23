@@ -23,3 +23,14 @@ Open your index.html file in vim and issue the following in cmd-mode:
 StartBrowserSync
 ```
 The server will start and bind itself to `localhost:3000`
+
+To kill the server on the default port 3000 use this:
+```
+KillBrowserSync
+```
+Use this command to kill the server on a certain port:
+```
+KillBrowserSyncOnPort N
+KillBrowserSyncOnPort 3006
+```
+
