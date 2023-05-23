@@ -4,15 +4,14 @@
 " By Wolandark
 " https://github.com/wolandark/browser-sync/
 
-
 function! StartBrowserSync()
-    let cmd = "browser-sync start --server --cwd=" . expand('%:p:h') . " --files \"*.html, *.css\" &"
+    let cmd = "browser-sync start --server --cwd=" . getcwd() . " --files \"*.html, *.css\" &"
     call system(cmd)
     echo "BrowserSync started in the background."
 endfunction
 
 function! StartBrowserSyncOnPort(port)
-    let cmd = "browser-sync start --server --cwd=" . expand('%:p:h') . " --port=" . a:port . " --files \"*.html, *.css\" &"
+    let cmd = "browser-sync start --server --cwd=" . getcwd() . " --port=" . a:port . " --files \"*.html, *.css\" &"
     call system(cmd)
     echo "BrowserSync started in the background."
 endfunction
@@ -38,4 +37,3 @@ command! StartBrowserSync call StartBrowserSync()
 command! -nargs=1 StartBrowserSyncOnPort call StartBrowserSyncOnPort(<f-args>)
 command! KillBrowserSync call KillBrowserSync()
 command! -nargs=1 KillBrowserSyncOnPort call KillBrowserSyncOnPort(<f-args>)
-
