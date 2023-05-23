@@ -1,8 +1,18 @@
 " browsersync.vim
 
+" A live web server for vim
+" By Wolandark
+" https://github.com/wolandark/browser-sync/
+
+
 function! StartBrowserSync()
-    let current_file = expand('%:p:h')
-    let cmd = "cd " . current_file . " && browser-sync start --server --files \"*.html, *.css\" &"
+    let cmd = "browser-sync start --server --cwd=" . expand('%:p:h') . " --files \"*.html, *.css\" &"
+    call system(cmd)
+    echo "BrowserSync started in the background."
+endfunction
+
+function! StartBrowserSyncOnPort(port)
+    let cmd = "browser-sync start --server --cwd=" . expand('%:p:h') . " --port=" . a:port . " --files \"*.html, *.css\" &"
     call system(cmd)
     echo "BrowserSync started in the background."
 endfunction
@@ -24,13 +34,8 @@ function! KillBrowserSyncOnPort(port)
     echo "BrowserSync server on port " . a:port . " terminated."
 endfunction
 
-" function! RIPBrowserSync()
-"     let cmd = "killall browser-sync"
-"     call system(cmd)
-"     echo "RIP Browser-Sync"
-" endfunction
-
 command! StartBrowserSync call StartBrowserSync()
+command! -nargs=1 StartBrowserSyncOnPort call StartBrowserSyncOnPort(<f-args>)
 command! KillBrowserSync call KillBrowserSync()
 command! -nargs=1 KillBrowserSyncOnPort call KillBrowserSyncOnPort(<f-args>)
-" command! RIPBrowserSync call RIPBrowserSync()
+

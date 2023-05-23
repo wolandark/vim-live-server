@@ -24,6 +24,12 @@ StartBrowserSync
 ```
 The server will start and bind itself to `localhost:3000`
 
+To start serving on a specific port, use:
+```
+StartBrowserSyncOnPort N
+StartBrowserSyncOnPort 3009
+```
+
 To kill the server on the default port 3000 use this:
 ```
 KillBrowserSync
@@ -33,4 +39,10 @@ Use this command to kill the server on a certain port:
 KillBrowserSyncOnPort N
 KillBrowserSyncOnPort 3006
 ```
+
+### 
+
+
+
+
 
