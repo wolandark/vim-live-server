@@ -1,7 +1,7 @@
 ### Vim Live Server
-#### A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync)
-
-https://github.com/wolandark/browser-sync/assets/107309764/218cb8a0-459a-43cd-a987-1b43d1fb2b92
+ A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync).
+ 
+ Preview your code in your browser as you change it with ease.
 
 ### Dependency
 nodejs & npm
@@ -43,6 +43,9 @@ KillBrowserSyncOnPort 3006
 ```
 ### Thats it!
 Enjoy!
+
+### Demo
+https://github.com/wolandark/browser-sync/assets/107309764/218cb8a0-459a-43cd-a987-1b43d1fb2b92
 
 ### Contact me
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/wolandarkside)
