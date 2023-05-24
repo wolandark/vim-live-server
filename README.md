@@ -18,11 +18,11 @@ or use this alternative that uses a post installation hook to download the brows
 Plug 'https://github.com/wolandark/browser-sync.git', { 'do': 'npm install browser-sync' }
 ```
 ### Usage
-Open your index.html file in vim and issue the following in cmd-mode:
+Open your index.html file in vim and issue the following in cmd-mode. The server will start and bind itself to `localhost:3000`
+
 ```
 StartBrowserSync
 ```
-The server will start and bind itself to `localhost:3000`
 
 To start serving on a specific port, use:
 ```
