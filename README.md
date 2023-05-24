@@ -1,4 +1,4 @@
-### browser-sync
+### Vim Live Server
 #### A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync)
 
 https://github.com/wolandark/browser-sync/assets/107309764/218cb8a0-459a-43cd-a987-1b43d1fb2b92
@@ -41,9 +41,12 @@ Use this command to kill the server on a certain port:
 KillBrowserSyncOnPort N
 KillBrowserSyncOnPort 3006
 ```
+### Thats it!
+Enjoy!
 
-### 
-
+### Contact me
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/wolandarkside)
+[![Protonmail](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)](mailto:contact-woland@proton.me)
 
 
 
