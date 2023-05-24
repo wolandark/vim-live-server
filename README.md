@@ -1,5 +1,7 @@
 ### browser-sync
-A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync)
+#### A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync)
+
+https://github.com/wolandark/browser-sync/assets/107309764/218cb8a0-459a-43cd-a987-1b43d1fb2b92
 
 ### Dependency
 nodejs & npm
