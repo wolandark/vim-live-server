@@ -41,6 +41,14 @@ Use this command to kill the server on a certain port:
 KillBrowserSyncOnPort N
 KillBrowserSyncOnPort 3006
 ```
+### Optional keybindings
+```
+nmap <F2> :StartBrowserSync <CR>
+nmap <F3> :KillBrowserSync <CR>
+nmap <F4> :StartBrowserSyncOnPort
+nmap <F5> :KilltBrowserSyncOnPort
+```
+
 ### Thats it!
 Enjoy!
 
