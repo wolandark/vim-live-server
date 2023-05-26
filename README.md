@@ -46,7 +46,7 @@ KillBrowserSyncOnPort 3006
 nmap <F2> :StartBrowserSync <CR>
 nmap <F3> :KillBrowserSync <CR>
 nmap <F4> :StartBrowserSyncOnPort
-nmap <F5> :KilltBrowserSyncOnPort
+nmap <F5> :KillBrowserSyncOnPort
 ```
 
 ### Thats it!
