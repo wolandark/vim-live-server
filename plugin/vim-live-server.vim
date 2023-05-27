@@ -1,4 +1,4 @@
-" browsersync.vim
+" vim-live-server.vim
 
 " A live web server for vim
 " By Wolandark
