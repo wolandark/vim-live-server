@@ -2,7 +2,7 @@
 
 " A live web server for vim
 " By Wolandark
-" https://github.com/wolandark/browser-sync/
+" https://github.com/wolandark/vim-live-server
 
 function! StartBrowserSync()
     let cmd = "browser-sync start --server --cwd=" . getcwd() . " --files \"*.html, *.css\" &"
