@@ -7,12 +7,11 @@
 - nodejs 
 - npm
 
-1. Install the `browser-sync` package globally using npm:
-
+Install the `browser-sync` package globally using npm:
 ```
    sudo npm install -g browser-sync
 ```
-2. Use your favorite Vim plugin manager to install `vim-live-server`.
+Use your favorite Vim plugin manager to install [vim-live-server](https://github.com/wolandark/vim-live-server).
 
 # Installation
 
