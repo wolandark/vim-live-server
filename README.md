@@ -1,7 +1,7 @@
 # Vim Live Server
- A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync).
+## Preview your web development in your browser in real time.
+A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync).
  
- Preview your code in your browser as you change it with ease.
 
 ## Dependency
 - nodejs 
