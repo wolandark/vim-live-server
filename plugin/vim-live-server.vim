@@ -5,14 +5,14 @@
 " https://github.com/wolandark/vim-live-server
 
 function! StartBrowserSync()
-    let cmd = "browser-sync start --server --cwd=" . getcwd() . " --files \"*.html, *.css, *.js\" &"
+    let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --files \"*.html, *.css, *.js\" &"
     call system(cmd)
     echo "BrowserSync started in the background."
 endfunction
 
 function! StartBrowserSyncOnPort(port)
     let port_num = a:port + 0  " Convert a:port to a number
-    let cmd = "browser-sync start --server --cwd=" . getcwd() . " --port=" . port_num . " --files \"*.html, *.css, *.js\" &"
+    let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --port=" . port_num . " --files \"*.html, *.css, *.js\" &"
     call system(cmd)
     echo "BrowserSync started in the background on port " . port_num . "."
 endfunction
