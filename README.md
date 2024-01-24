@@ -1,14 +1,15 @@
 # Vim Live Server
 ## Preview your web development in your browser in real time.
-A dead-simple live server implementation using [browser-sync](https://www.npmjs.com/package/browser-sync).
- 
+A dead-simple live server for Vim/NeoVim <br>
+Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser-sync](https://www.npmjs.com/package/browser-sync).
 
 ## Dependency
 - nodejs 
 - npm
 
-Install the `browser-sync` package globally using npm:
+Install either the `live-server` or the `browser-sync` package globally using npm:
 ```
+   sudo npm install -g live-server
    sudo npm install -g browser-sync
 ```
 
@@ -25,9 +26,10 @@ Add the following line to your plugin configuration in your .vimrc file:
 ```
 Plug 'https://github.com/wolandark/vim-live-server.git'
 ```
-With vimplug you can use this alternative command that uses a post-installation hook to download the browser-sync package from npm automatically:
+With vimplug you can use one of these alternative commands that uses a post-installation hook to download the live-server or the browser-sync package from npm automatically:
 
 ```
+Plug 'https://github.com/wolandark/vim-live-server.git', { 'do': 'sudo npm install -g live-server' }
 Plug 'https://github.com/wolandark/vim-live-server.git', { 'do': 'sudo npm install -g browser-sync' }
 ```
 
@@ -46,32 +48,47 @@ git clone https://github.com/wolandark/vim-live-server.git
 ```
 
 # Usage
-Open your index.html file in vim and issue the following in ex-mode. The server will start and bind itself to `localhost:3000`
-
+Open your index.html file in vim and issue the following in ex-mode. live-server will start and bind itself to `localhost:8080` and `browser-sync` will bind to `localhost:3000`.<br>
+_Notice that all of the commands use pascal case_<br>
 ```
+StartLiveServer
+
+or
+
 StartBrowserSync
 ```
 
 To start serving on a specific port, use:
 ```
+StartLiveServerOnPort N
+StartLiveServerOnPort 2222
+
 StartBrowserSyncOnPort N
-StartBrowserSyncOnPort 3009
+StartBrowserSyncOnPort 3001
 ```
 
 To kill the server on the default port 3000 use this:
 ```
+KillLiveServer
+
 KillBrowserSync
 ```
 Use this command to kill the server on a certain port:
 ```
+KillLiveServerOnPort N
+KillLiveServerOnPort 2222
+
 KillBrowserSyncOnPort N
-KillBrowserSyncOnPort 3006
+KillBrowserSyncOnPort 3001
 ```
 _Note:
-vim-live-server will kill all running instances of browser-sync on [VimLeave](https://vimhelp.org/autocmd.txt.html#VimLeave)._
+vim-live-server will kill all running instances of live-server and browser-sync on [VimLeave](https://vimhelp.org/autocmd.txt.html#VimLeave)._
 
 # Optional keybindings
 ```
+nmap <F2> :StartLiveServer <CR>
+nmap <F3> :KillLiveServer <CR>
+
 nmap <F2> :StartBrowserSync <CR>
 nmap <F3> :KillBrowserSync <CR>
 ```
@@ -81,6 +98,15 @@ nmap <F3> :KillBrowserSync <CR>
 # Demo
 https://github.com/wolandark/browser-sync/assets/107309764/218cb8a0-459a-43cd-a987-1b43d1fb2b92
 
+# Note on Two Backends
+Vim Live Server offers flexibility by supporting two backend options: `live-server` and `browser-sync`. However, users need to install and use only one of them, depending on their preferences and requirements.
+
+The inclusion of `live-server` is motivated by its straightforward and efficient approach, and a 'no-nonsense' nature. Notably, it avoids resetting the scroll position on reload, providing a seamless experience during development.
+
+Choose the backend that best aligns with your workflow and and enjoy using you favorite editor for development.
+
 # Contact me
+Feel free to reach out on Telegram or email for support, feedback, or contributions.
+
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/wolandarkside)
 [![Protonmail](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)](mailto:contact-woland@proton.me)
