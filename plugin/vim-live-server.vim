@@ -4,8 +4,10 @@
 " By Wolandark
 " https://github.com/wolandark/vim-live-server
 
+"Browser-Sync
 function! StartBrowserSync()
-    let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --files \"*.html, *.css, *.js\" &"
+    " let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --files \"*.html, *.css, *.js\" &"
+    let cmd = "browser-sync start --no-notify --server --files *.html, *.css, *.js &"
     call system(cmd)
     echo "BrowserSync started in the background."
 endfunction
@@ -44,7 +46,53 @@ augroup BrowserSyncKill
     autocmd VimLeave * call KillAllBrowserSyncInstances()
 augroup END
 
+" Live-Server
+function! StartLiveServer()
+    let cmd = "live-server &"
+    call system(cmd)
+    echo "Live server started in the background."
+endfunction
+
+function! StartLiveServerOnPort(port)
+    let port_num = a:port + 0  " Convert a:port to a number
+    let cmd = "live-server --port=" . port_num . "&"
+    call system(cmd)
+    echo "Live Server started in the background on port " . port_num . "."
+endfunction
+
+function! KillLiveServer()
+    let port = systemlist("pgrep -f 'live-server'")[0]
+    if empty(port)
+        echo "No Live Server found on port 8080."
+    else
+        let cmd = "kill " . port
+        call system(cmd)
+        echo "Live Server on port 8080 terminated."
+    endif
+endfunction
+
+function! KillLiveServerOnPort(port)
+    let cmd = "pgrep -f 'live-server.*--port=" . a:port . "' | xargs -r kill"
+    call system(cmd)
+    echo "Live Server on port " . a:port . " terminated."
+endfunction
+
+function! KillAllLiveServerInstances()
+    let cmd = "pkill -f 'live-server'"
+    call system(cmd)
+endfunction
+
+augroup LiveServerKill
+    autocmd!
+    autocmd VimLeave * call KillAllLiveServerInstances()
+augroup END
+
+" Call Commands
 command! StartBrowserSync call StartBrowserSync()
+command! StartLiveServer call StartLiveServer()
 command! -nargs=1 StartBrowserSyncOnPort call StartBrowserSyncOnPort(<f-args>)
+command! -nargs=1 StartLiveServerOnPort call StartLiveServerOnPort(<f-args>)
 command! KillBrowserSync call KillBrowserSync()
+command! KillLiveServer call KillLiveServer()
 command! -nargs=1 KillBrowserSyncOnPort call KillBrowserSyncOnPort(<f-args>)
+command! -nargs=1 KillLiveServerOnPort call KillLiveServerOnPort(<f-args>)
