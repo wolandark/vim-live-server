@@ -9,8 +9,8 @@ Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser
 
 Install either the `live-server` or the `browser-sync` package globally using npm:
 ```
-   sudo npm install -g live-server
-   sudo npm install -g browser-sync
+sudo npm install -g live-server
+sudo npm install -g browser-sync
 ```
 
 # Installation
