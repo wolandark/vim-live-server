@@ -57,6 +57,7 @@ or
 
 StartBrowserSync
 ```
+Vim Live Server opens your default browser automatically.<br>
 
 To start serving on a specific port, use:
 ```
