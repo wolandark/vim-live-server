@@ -4,18 +4,37 @@
 " By Wolandark
 " https://github.com/wolandark/vim-live-server
 
-"Browser-Sync
+" Check if a command exists
+function! CommandExists(cmd)
+    return !empty(system('command -v ' . a:cmd))
+endfunction
+
+" Install a command using npm
+function! InstallCommand(cmd)
+    let install_cmd = "sudo npm install -g " . a:cmd
+    call system(install_cmd)
+    echo a:cmd . " installed."
+endfunction
+
+" Browser-Sync
 function! StartBrowserSync()
-    " let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --files \"*.html, *.css, *.js\" &"
+    if !CommandExists('browser-sync')
+        call InstallCommand('browser-sync')
+    endif
     let cmd = "browser-sync start --no-notify --server --files *.html, *.css, *.js &"
     call system(cmd)
+    let g:last_server = 'browser-sync'
     echo "BrowserSync started in the background."
 endfunction
 
 function! StartBrowserSyncOnPort(port)
+    if !CommandExists('browser-sync')
+        call InstallCommand('browser-sync')
+    endif
     let port_num = a:port + 0  " Convert a:port to a number
     let cmd = "browser-sync start --no-notify --server --cwd=" . getcwd() . " --port=" . port_num . " --files \"*.html, *.css, *.js\" &"
     call system(cmd)
+    let g:last_server = 'browser-sync'
     echo "BrowserSync started in the background on port " . port_num . "."
 endfunction
 
@@ -48,15 +67,23 @@ augroup END
 
 " Live-Server
 function! StartLiveServer()
+    if !CommandExists('live-server')
+        call InstallCommand('live-server')
+    endif
     let cmd = "live-server &"
     call system(cmd)
+    let g:last_server = 'live-server'
     echo "Live server started in the background."
 endfunction
 
 function! StartLiveServerOnPort(port)
+    if !CommandExists('live-server')
+        call InstallCommand('live-server')
+    endif
     let port_num = a:port + 0  " Convert a:port to a number
     let cmd = "live-server --port=" . port_num . "&"
     call system(cmd)
+    let g:last_server = 'live-server'
     echo "Live Server started in the background on port " . port_num . "."
 endfunction
 
@@ -87,6 +114,36 @@ augroup LiveServerKill
     autocmd VimLeave * call KillAllLiveServerInstances()
 augroup END
 
+" User selection for F2 key
+function! ChooseServer()
+    echo "Choose server to start:"
+    echo "1. live-server"
+    echo "2. browser-sync"
+    let choice = input("Enter your choice: ")
+    if choice == '1'
+        call StartLiveServer()
+    elseif choice == '2'
+        call StartBrowserSync()
+    else
+        echo "Invalid choice"
+    endif
+endfunction
+
+" Kill server based on last choice
+function! KillServer()
+    if exists('g:last_server')
+        if g:last_server == 'live-server'
+            call KillLiveServer()
+        elseif g:last_server == 'browser-sync'
+            call KillBrowserSync()
+        else
+            echo "Unknown server type"
+        endif
+    else
+        echo "No server has been started"
+    endif
+endfunction
+
 " Call Commands
 command! StartBrowserSync call StartBrowserSync()
 command! StartLiveServer call StartLiveServer()
@@ -96,3 +153,7 @@ command! KillBrowserSync call KillBrowserSync()
 command! KillLiveServer call KillLiveServer()
 command! -nargs=1 KillBrowserSyncOnPort call KillBrowserSyncOnPort(<f-args>)
 command! -nargs=1 KillLiveServerOnPort call KillLiveServerOnPort(<f-args>)
+
+" Key mappings
+nmap <F2> :call ChooseServer()<CR>
+nmap <F3> :call KillServer()<CR>
