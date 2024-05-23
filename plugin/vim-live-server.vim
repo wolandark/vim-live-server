@@ -1,9 +1,5 @@
 " vim-live-server.vim
 
-" A live web server for Vim
-" By Wolandark
-" https://github.com/wolandark/vim-live-server
-
 " Check if a command exists
 function! CommandExists(cmd)
     return !empty(system('command -v ' . a:cmd))
@@ -21,10 +17,14 @@ function! StartBrowserSync()
     if !CommandExists('browser-sync')
         call InstallCommand('browser-sync')
     endif
-    let cmd = "browser-sync start --no-notify --server --files *.html, *.css, *.js &"
-    call system(cmd)
-    let g:last_server = 'browser-sync'
-    echo "BrowserSync started in the background."
+    if exists('g:BrowserSyncPort') && !empty(g:BrowserSyncPort)
+        call StartBrowserSyncOnPort(g:BrowserSyncPort)
+    else
+        let cmd = "browser-sync start --no-notify --server --files *.html, *.css, *.js &"
+        call system(cmd)
+        let g:last_server = 'browser-sync'
+        echo "BrowserSync started in the background."
+    endif
 endfunction
 
 function! StartBrowserSyncOnPort(port)
@@ -45,7 +45,11 @@ function! KillBrowserSync()
     else
         let cmd = "kill " . port
         call system(cmd)
-        echo "BrowserSync server on port 3000 terminated."
+        if exists('g:BrowserSyncPort') && !empty(g:BrowserSyncPort)
+            echo "BrowserSync server on port " . g:BrowserSyncPort . " terminated."
+        else
+            echo "BrowserSync server on port 3000 terminated."
+        endif
     endif
 endfunction
 
@@ -70,10 +74,14 @@ function! StartLiveServer()
     if !CommandExists('live-server')
         call InstallCommand('live-server')
     endif
-    let cmd = "live-server &"
-    call system(cmd)
-    let g:last_server = 'live-server'
-    echo "Live server started in the background."
+    if exists('g:LiveServerPort') && !empty(g:LiveServerPort)
+        call StartLiveServerOnPort(g:LiveServerPort)
+    else
+        let cmd = "live-server &"
+        call system(cmd)
+        let g:last_server = 'live-server'
+        echo "Live server started in the background."
+    endif
 endfunction
 
 function! StartLiveServerOnPort(port)
@@ -94,7 +102,11 @@ function! KillLiveServer()
     else
         let cmd = "kill " . port
         call system(cmd)
-        echo "Live Server on port 8080 terminated."
+        if exists('g:LiveServerPort') && !empty(g:LiveServerPort)
+            echo "Live Server on port " . g:LiveServerPort . " terminated."
+        else
+            echo "Live Server on port 8080 terminated."
+        endif
     endif
 endfunction
 
@@ -157,3 +169,7 @@ command! -nargs=1 KillLiveServerOnPort call KillLiveServerOnPort(<f-args>)
 " Key mappings
 nmap <F2> :call ChooseServer()<CR>
 nmap <F3> :call KillServer()<CR>
+
+" Set default values for ports (optional)
+let g:BrowserSyncPort = ''
+let g:LiveServerPort = ''
