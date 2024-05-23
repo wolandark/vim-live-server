@@ -87,11 +87,8 @@ vim-live-server will kill all running instances of live-server and browser-sync 
 
 # Optional keybindings
 ```
-nmap <F2> :StartLiveServer <CR>
-nmap <F3> :KillLiveServer <CR>
-
-nmap <F2> :StartBrowserSync <CR>
-nmap <F3> :KillBrowserSync <CR>
+nmap <F2> :call ChooseServer()<CR>
+nmap <F3> :call KillServer()<CR>
 ```
 
 <h1 align="center">Thats it! Enjoy!</h1>
