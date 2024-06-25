@@ -9,7 +9,7 @@ Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser
   - [Preview your web development in your browser in real time.](#preview-your-web-development-in-your-browser-in-real-time)
 - [Dependency](#dependency)
 - [Installation](#installation)
-  - [Using Vim packages (**needs Vim 8+**)](#using-vim-packages-needs-vim-8)
+  - [Using Vim packages](#using-vim-packages)
   - [Using vim-plug](#using-vim-plug)
   - [Using Vundle](#using-vundle)
   - [Using Pathogen](#using-pathogen)
@@ -33,7 +33,9 @@ sudo npm install -g browser-sync
 # Installation
 Use your favorite Vim plugin manager to install [vim-live-server](https://github.com/wolandark/vim-live-server).
 
-#### Using Vim [packages](https://vimhelp.org/repeat.txt.html#packages)	(**needs Vim 8+**)
+#### Using Vim [packages](https://vimhelp.org/repeat.txt.html#packages)	
+
+(**needs Vim 8+**)
 ```
 git clone https://github.com/wolandark/vim-live-server.git ~/.vim/pack/plugins/start/vim-live-server/
 ```
