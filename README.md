@@ -4,9 +4,6 @@ A dead-simple live server for Vim/NeoVim <br>
 Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser-sync](https://www.npmjs.com/package/browser-sync).
 
 # Index
-
-- [Vim Live Server](#vim-live-server)
-  - [Preview your web development in your browser in real time.](#preview-your-web-development-in-your-browser-in-real-time)
 - [Dependency](#dependency)
 - [Installation](#installation)
   - [Using Vim packages](#using-vim-packages)
@@ -18,6 +15,7 @@ Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser
 - [Demo](#demo)
 - [Note on Two Backends](#note-on-two-backends)
 - [Contact me](#contact-me)
+- [Contribution Guide](#contribution-guide)
 
 
 ## Dependency
@@ -124,6 +122,9 @@ Vim Live Server offers flexibility by supporting two backend options: `live-serv
 The inclusion of `live-server` is motivated by its straightforward and efficient approach, and a 'no-nonsense' nature. Notably, it avoids resetting the scroll position on reload, providing a seamless experience during development.
 
 Choose the backend that best aligns with your workflow and and enjoy using you favorite editor for development.
+
+# Contribution Guide
+Please follow contribution convention when submiting pull requests. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) for more information.
 
 # Contact me
 Feel free to reach out on Telegram or email for support, feedback, or contributions.
