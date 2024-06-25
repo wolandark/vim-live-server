@@ -3,6 +3,23 @@
 A dead-simple live server for Vim/NeoVim <br>
 Supporting [live-server](https://www.npmjs.com/package/live-server) and [browser-sync](https://www.npmjs.com/package/browser-sync).
 
+# Index
+
+- [Vim Live Server](#vim-live-server)
+  - [Preview your web development in your browser in real time.](#preview-your-web-development-in-your-browser-in-real-time)
+- [Dependency](#dependency)
+- [Installation](#installation)
+  - [Using Vim packages (**needs Vim 8+**)](#using-vim-packages-needs-vim-8)
+  - [Using vim-plug](#using-vim-plug)
+  - [Using Vundle](#using-vundle)
+  - [Using Pathogen](#using-pathogen)
+- [Usage](#usage)
+- [Optional keybindings](#optional-keybindings)
+- [Demo](#demo)
+- [Note on Two Backends](#note-on-two-backends)
+- [Contact me](#contact-me)
+
+
 ## Dependency
 - nodejs 
 - npm
