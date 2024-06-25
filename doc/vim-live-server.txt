@@ -1,0 +1,93 @@
+*vim-live-server.txt*    For Vim version 8.0+    Last change: 2024-06-25
+==============================================================================
+1. Introduction                                               *vim-live-server*
+==============================================================================
+                            VIM-LIVE-SERVER
+
+                     A live web server for Vim
+                            By Wolandark
+               https://github.com/wolandark/vim-live-server
+==============================================================================
+CONTENTS                               *vim-live-server-contents*
+
+1. BrowserSync Functions               |vim-live-server-browsersync|
+2. LiveServer Functions                |vim-live-server-liveserver|
+3. Commands                            |vim-live-server-commands|
+4. Examples                            |vim-liveserver-examples|
+
+==============================================================================
+BROWSERSYNC FUNCTIONS                  *vim-live-server-browsersync*
+
+StartBrowserSync()~
+    Starts a BrowserSync server that watches all .html, .css, and .js files in
+    the current working directory.
+
+StartBrowserSyncOnPort(port)~
+    Starts a BrowserSync server on a specified port.
+
+KillBrowserSync()~
+    Terminates the BrowserSync server running on default port 3000.
+
+KillBrowserSyncOnPort(port)~
+    Terminates the BrowserSync server running on a specified port.
+
+KillAllBrowserSyncInstances()~
+    Terminates all running instances of BrowserSync.
+
+==============================================================================
+LIVESERVER FUNCTIONS                   *vim-live-server-liveserver*
+
+StartLiveServer()~
+    Starts a LiveServer instance.
+
+StartLiveServerOnPort(port)~
+    Starts a LiveServer instance on a specified port.
+
+KillLiveServer()~
+    Terminates the LiveServer instance running on default port 8080.
+
+KillLiveServerOnPort(port)~
+    Terminates the LiveServer instance running on a specified port.
+
+KillAllLiveServerInstances()~
+    Terminates all running instances of LiveServer.
+
+==============================================================================
+COMMANDS                               *vim-live-server-commands*
+
+:StartBrowserSync~
+    Calls StartBrowserSync().
+
+:StartLiveServer~
+    Calls StartLiveServer().
+
+:StartBrowserSyncOnPort {port}~
+    Calls StartBrowserSyncOnPort({port}).
+
+:StartLiveServerOnPort {port}~
+    Calls StartLiveServerOnPort({port}).
+
+:KillBrowserSync~
+    Calls KillBrowserSync().
+
+:KillLiveServer~
+    Calls KillLiveServer().
+
+:KillBrowserSyncOnPort {port}~
+    Calls KillBrowserSyncOnPort({port}).
+
+:KillLiveServerOnPort {port}~
+    Calls KillLiveServerOnPort({port}).
+
+Please replace {port} with the desired port number when using the commands
+that require a port argument.
+
+==============================================================================
+EXAMPLES                               *vim-liveserver-examples*
+
+:StartLiveServerOnPort 2222~
+:KillLiveServerOnPort 2222~
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:
+
