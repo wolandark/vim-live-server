@@ -124,7 +124,7 @@ The inclusion of `live-server` is motivated by its straightforward and efficient
 Choose the backend that best aligns with your workflow and and enjoy using you favorite editor for development.
 
 # Contribution Guide
-Please follow contribution convention when submiting pull requests. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) for more information.
+Please follow contribution conventions when submiting pull requests. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) for more information.
 
 # Contact me
 Feel free to reach out on Telegram or email for support, feedback, or contributions.
